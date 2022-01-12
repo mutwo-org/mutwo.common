@@ -14,9 +14,7 @@ This extension implements:
 - `mutwo.ext.generators.edwards`: Algorithms which are related to British composer Michael Edwards
 - `mutwo.ext.generators.gray`: Algorithms which are related to US-American researcher Frank Gray
 - `mutwo.ext.generators.koenig`: Algorithms which are related to German-Dutch composer G. M. Koenig
-- `mutwo.ext.generators.sabat_constants`: Constants which are related to Canadian composer Marc Sabat
 - `mutwo.ext.generators.toussaint`: Algorithms which are related to Canadian computer scientist G. T. Toussaint
-- `mutwo.ext.generators.wilson`: Algorithms which are related to US-American tuning theorist Erv Wilson
 
 ### Installation
 
