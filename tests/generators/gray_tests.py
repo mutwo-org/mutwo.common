@@ -1,6 +1,6 @@
 import unittest
 
-from mutwo.ext.generators import gray
+from mutwo import common_generators
 
 
 class GrayTest(unittest.TestCase):
@@ -19,10 +19,10 @@ class GrayTest(unittest.TestCase):
             (1, 0, 0),
         )
 
-        self.assertEqual(gray.reflected_binary_code(2, 1), code0)
-        self.assertEqual(gray.reflected_binary_code(2, 2), code1)
-        self.assertEqual(gray.reflected_binary_code(2, 3), code2)
-        self.assertEqual(gray.reflected_binary_code(3, 2), code3)
+        self.assertEqual(common_generators.reflected_binary_code(2, 1), code0)
+        self.assertEqual(common_generators.reflected_binary_code(2, 2), code1)
+        self.assertEqual(common_generators.reflected_binary_code(2, 3), code2)
+        self.assertEqual(common_generators.reflected_binary_code(3, 2), code3)
 
 
 if __name__ == "__main__":

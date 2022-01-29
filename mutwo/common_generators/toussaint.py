@@ -2,7 +2,7 @@
 
 import itertools
 
-from mutwo.core.utilities import tools
+from mutwo import core_utilities
 
 __all__ = ("euclidean", "paradiddle", "alternating_hands")
 
@@ -30,7 +30,9 @@ def euclidean(size: int, distribution: int) -> tuple[int, ...]:
     rest = size % distribution
     data = (standard_size for _ in range(distribution))
     if rest:
-        added = tuple(tools.accumulate_from_zero(euclidean(distribution, rest)))
+        added = tuple(
+            core_utilities.accumulate_from_zero(euclidean(distribution, rest))
+        )
         return tuple(s + 1 if idx in added else s for idx, s in enumerate(data))
     else:
         return tuple(data)
@@ -114,7 +116,9 @@ def alternating_hands(
     """
 
     n_elements = len(seed_rhythm)
-    absolute_rhythm = tuple(tools.accumulate_from_zero(seed_rhythm + seed_rhythm))
+    absolute_rhythm = tuple(
+        core_utilities.accumulate_from_zero(seed_rhythm + seed_rhythm)
+    )
     cycle = itertools.cycle((True, False))
     distribution = tuple(next(cycle) for n in range(n_elements))
     distribution += _mirror(distribution)

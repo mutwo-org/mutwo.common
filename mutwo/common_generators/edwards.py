@@ -4,8 +4,8 @@ import functools
 import itertools
 import operator
 
-from mutwo.core.utilities import tools
-from mutwo.ext.generators import edwards_constants
+from mutwo import core_utilities
+from mutwo import common_generators
 
 __all__ = ("ActivityLevel",)
 
@@ -41,23 +41,32 @@ class ActivityLevel(object):
     (True, False, True, True, False, True, True, False, True, True)
     """
 
-    _allowed_range_tuple = tuple(range(len(edwards_constants.ACTIVITY_LEVEL_TUPLE)))
+    _allowed_range_tuple = tuple(
+        range(len(common_generators.constants.ACTIVITY_LEVEL_TUPLE))
+    )
 
     def __init__(self, start_at: int = 0) -> None:
         try:
             assert start_at in (0, 1, 2)
         except AssertionError:
-            message = "start_at has to be either 0, 1 or 2 and not {}, ".format(start_at)
-            message += "because there are only three different tuples defined per level."
+            message = "start_at has to be either 0, 1 or 2 and not {}, ".format(
+                start_at
+            )
+            message += (
+                "because there are only three different tuples defined per level."
+            )
             raise ValueError(message)
 
         self._activity_level_cycle_tuple = tuple(
             itertools.cycle(
                 functools.reduce(
-                    operator.add, tuple(tools.cyclic_permutations(level_tuple))[start_at]
+                    operator.add,
+                    tuple(core_utilities.cyclic_permutations(level_tuple))[
+                        start_at
+                    ],
                 )
             )
-            for level_tuple in edwards_constants.ACTIVITY_LEVEL_TUPLE
+            for level_tuple in common_generators.constants.ACTIVITY_LEVEL_TUPLE
         )
 
     def __repr__(self) -> str:

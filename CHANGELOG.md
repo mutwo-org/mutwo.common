@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [0.2.0] - 2022-01-29
+
+### Changed
+- Apply refactor from first plugin to namespace package plugin structure
+
 ## [0.2.0] - 2022-01-12
 
 ### Changed

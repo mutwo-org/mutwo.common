@@ -4,6 +4,8 @@ import expenvelope  # type: ignore
 import numpy as np  # type: ignore
 import ranges  # type: ignore
 
+__all__ = ("Tendency",)
+
 
 class Tendency(object):
     """Tendency offers an interface for dynamically changing minima / maxima areas.

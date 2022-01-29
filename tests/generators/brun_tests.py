@@ -7,11 +7,11 @@ except ImportError:
 
 import numpy as np
 
-from mutwo.ext.generators import brun
+from mutwo import common_generators
 
 
 class BrunTest(unittest.TestCase):
-    def test_make_bruns_euclidean_algorithm_generator(self):
+    def test_make_common_generatorss_euclidean_algorithm_generator(self):
         expected_element_tuple_per_call = (
             # initial element tuple
             (
@@ -34,8 +34,8 @@ class BrunTest(unittest.TestCase):
             fractions.Fraction(2, 1),
             fractions.Fraction(1, 2),
         )
-        bruns_euclidean_algorithm_generator = (
-            brun.make_bruns_euclidean_algorithm_generator(
+        common_generatorss_euclidean_algorithm_generator = (
+            common_generators.make_bruns_euclidean_algorithm_generator(
                 expected_element_tuple_per_call[0]
             )
         )
@@ -49,7 +49,7 @@ class BrunTest(unittest.TestCase):
             expected_previous_subtraction_result_per_call,
         ):
             element_tuple, matrix, previous_subtraction_result = next(
-                bruns_euclidean_algorithm_generator
+                common_generatorss_euclidean_algorithm_generator
             )
             self.assertEqual(element_tuple, expected_element_tuple)
             self.assertEqual(

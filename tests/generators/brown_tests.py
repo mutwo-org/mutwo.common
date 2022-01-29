@@ -1,6 +1,6 @@
 import unittest
 
-from mutwo.ext.generators import brown
+from mutwo import common_generators
 
 
 class BrownTest(unittest.TestCase):
@@ -18,7 +18,7 @@ class BrownTest(unittest.TestCase):
             -0.24285223,
         )
         for state0, state1 in zip(
-            expected_result, brown.random_walk_noise(0, 10, 10 / 10, 0.25, None, 1)
+            expected_result, common_generators.random_walk_noise(0, 10, 10 / 10, 0.25, None, 1)
         ):
             self.assertAlmostEqual(state0, state1)
 

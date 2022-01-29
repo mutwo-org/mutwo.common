@@ -1,4 +1,4 @@
-"""Constants which are used in :mod:`mutwo.ext.generators.edwards`."""
+"""Constants which are used in :mod:`mutwo.common_generators`."""
 
 ACTIVITY_LEVEL_TUPLE = (
     # 0

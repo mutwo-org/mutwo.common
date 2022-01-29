@@ -3,14 +3,14 @@ import unittest
 import expenvelope  # type: ignore
 import ranges  # type: ignore
 
-from mutwo.ext.generators import koenig
+from mutwo import common_generators
 
 
 class TendencyTest(unittest.TestCase):
     def setUp(self):
         minima_curve = expenvelope.Envelope.from_points((0, 0), (1, 1), (2, 0))
         maxima_curve = expenvelope.Envelope.from_points((0, 1), (1, 2), (2, 3))
-        self.tendecy = koenig.Tendency(minima_curve, maxima_curve)
+        self.tendecy = common_generators.Tendency(minima_curve, maxima_curve)
 
     def test_range_at(self):
         self.assertEqual(self.tendecy.range_at(-100), ranges.Range(0, 1))
