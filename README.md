@@ -9,12 +9,7 @@ Generators extension for event based library [mutwo](https://github.com/mutwo-or
 
 This extension implements:
 
-- `mutwo.ext.generators.brown`: Algorithms which are related to Scottish botanist Robert Brown
-- `mutwo.ext.generators.brun`: Algorithms which are related to Norwegian mathematician V. Brun
-- `mutwo.ext.generators.edwards`: Algorithms which are related to British composer Michael Edwards
-- `mutwo.ext.generators.gray`: Algorithms which are related to US-American researcher Frank Gray
-- `mutwo.ext.generators.koenig`: Algorithms which are related to German-Dutch composer G. M. Koenig
-- `mutwo.ext.generators.toussaint`: Algorithms which are related to Canadian computer scientist G. T. Toussaint
+- `mutwo.common_generators`
 
 ### Installation
 

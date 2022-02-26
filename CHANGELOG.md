@@ -7,10 +7,24 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
-## [0.2.0] - 2022-01-29
+
+## [0.5.0] - 2022-01-29
+
+### Added
+- chomksy submodule with support for context-free grammar
+
+### Changed
+- from `expenvelope.Envelope` to `mutwo.core_events.Envelope`
+
+### Removed
+- `expenvelope` dependency
+
+
+## [0.4.0] - 2022-01-29
 
 ### Changed
 - Apply refactor from first plugin to namespace package plugin structure
+
 
 ## [0.2.0] - 2022-01-12
 

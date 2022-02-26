@@ -8,9 +8,9 @@ extras_require = {"testing": ["nose", "coveralls"]}
 
 setuptools.setup(
     name="mutwo.ext-common-generators",
-    version="0.4.0",
+    version="0.5.0",
     license="GPL",
-    description="Generators extension for event based framework for generative art",
+    description="Common generators extension for event based framework for generative art",
     long_description=long_description,
     long_description_content_type="text/markdown",
     author="Levin Eric Zimmermann",
@@ -25,10 +25,14 @@ setuptools.setup(
     setup_requires=[],
     install_requires=[
         "mutwo.ext-core>=0.54.0, <1.00.0",
+        # For the brown, brun and koenig modules
         "numpy>=1.18, <2.00",
+        # For the brown module
         "scipy>=1.4.1, <2.0.0",
-        "expenvelope>=0.6.5, <1.0.0",
+        # For the koenig module
         "python-ranges>=0.2.0, <1.0.0",
+        # For the chomsky module
+        "treelib>=1.6.1, <2.0.0",
     ],
     extras_require=extras_require,
     python_requires=">=3.9, <4",
