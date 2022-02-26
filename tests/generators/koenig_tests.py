@@ -1,15 +1,15 @@
 import unittest
 
-import expenvelope  # type: ignore
 import ranges  # type: ignore
 
+from mutwo import core_events
 from mutwo import common_generators
 
 
 class TendencyTest(unittest.TestCase):
     def setUp(self):
-        minima_curve = expenvelope.Envelope.from_points((0, 0), (1, 1), (2, 0))
-        maxima_curve = expenvelope.Envelope.from_points((0, 1), (1, 2), (2, 3))
+        minima_curve = core_events.Envelope.from_points((0, 0), (1, 1), (2, 0))
+        maxima_curve = core_events.Envelope.from_points((0, 1), (1, 2), (2, 3))
         self.tendecy = common_generators.Tendency(minima_curve, maxima_curve)
 
     def test_range_at(self):
