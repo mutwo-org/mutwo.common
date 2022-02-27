@@ -8,6 +8,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 
 
+## [0.7.0] - 2022-02-27
+
+### Added
+- property `terminal_tuple` and `non_terminal_tuple` to `ContextFreeGrammar`
+
+
 ## [0.6.0] - 2022-02-27
 
 ### Added
