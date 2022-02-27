@@ -80,14 +80,36 @@ class ContextFreeGrammar(object):
         index = self._non_terminal_tuple.index(non_terminal)  # type: ignore
         return self._divided_context_free_grammar_rule_tuple[index]
 
+    def _data_to_tag(
+        self, data: tuple[typing.Union[NonTerminal, Terminal], ...]
+    ) -> str:
+        return str(data)
+
     def _add_node(
         self,
         tree: treelib.Tree,
         data: tuple[typing.Union[NonTerminal, Terminal], ...],
         parent: typing.Optional[treelib.Node] = None,
     ):
-        tag = str(data)
-        tree.create_node(tag, data=data, parent=parent)
+        tree.create_node(self._data_to_tag(data), data=data, parent=parent)
+
+    def _resolve_content(
+        self, content: tuple[typing.Union[NonTerminal, Terminal], ...]
+    ) -> tuple[tuple[typing.Union[NonTerminal, Terminal], ...], ...]:
+        new_data_list = []
+        for nth_element, element in enumerate(content):
+            if isinstance(element, NonTerminal):
+                context_free_grammar_rule_tuple = (
+                    self.get_context_free_grammar_rule_tuple(element)
+                )
+                for context_free_grammar_rule in context_free_grammar_rule_tuple:
+                    data = (
+                        content[:nth_element]
+                        + context_free_grammar_rule.right_side
+                        + content[nth_element + 1 :]
+                    )
+                    new_data_list.append(data)
+        return tuple(new_data_list)
 
     def resolve_one_layer(self, tree: treelib.Tree) -> bool:
         """Resolve all leaves of the tree.
@@ -102,20 +124,10 @@ class ContextFreeGrammar(object):
 
         new_node = False
         for leaf in tree.leaves():
-            content = leaf.data
-            for nth_element, element in enumerate(content):
-                if isinstance(element, NonTerminal):
-                    context_free_grammar_rule_tuple = (
-                        self.get_context_free_grammar_rule_tuple(element)
-                    )
-                    for context_free_grammar_rule in context_free_grammar_rule_tuple:
-                        data = (
-                            content[:nth_element]
-                            + context_free_grammar_rule.right_side
-                            + content[nth_element + 1 :]
-                        )
-                        self._add_node(tree, data, leaf)
-                        new_node = True
+            data_tuple = self._resolve_content(leaf.data)
+            for data in data_tuple:
+                self._add_node(tree, data, leaf)
+                new_node = True
         return new_node
 
     def resolve(
