@@ -60,6 +60,17 @@ class ContextFreeGrammarTest(unittest.TestCase):
         expected_leaf_set = set(["noun verb noun"])
         self.assertEqual(real_leaf_set, expected_leaf_set)
 
+    def test_terminal_tuple(self):
+        self.assertEqual(
+            self.context_free_grammar.terminal_tuple, (self.cat, self.dog, self.eats)
+        )
+
+    def test_non_terminal_tuple(self):
+        self.assertEqual(
+            self.context_free_grammar.non_terminal_tuple,
+            (self.noun, self.sentence, self.verb),
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -2,6 +2,8 @@
 
 
 import dataclasses
+import functools
+import operator
 import typing
 
 import treelib
@@ -56,6 +58,19 @@ class ContextFreeGrammar(object):
                 for context_free_grammar_rule in context_free_grammar_rule_sequence
             )
         )
+        self._terminal_tuple = core_utilities.uniqify_sequence(
+            tuple(
+                item
+                for item in functools.reduce(
+                    operator.add,
+                    tuple(
+                        context_free_grammar_rule.right_side
+                        for context_free_grammar_rule in context_free_grammar_rule_sequence
+                    ),
+                )
+                if isinstance(item, Terminal)
+            )
+        )
         divided_context_free_grammar_rule_list = [[] for _ in self._non_terminal_tuple]
         for context_free_grammar_rule in context_free_grammar_rule_sequence:
             index = self._non_terminal_tuple.index(  # type: ignore
@@ -102,6 +117,14 @@ class ContextFreeGrammar(object):
                     )
                     new_data_list.append(data)
         return tuple(new_data_list)
+
+    @property
+    def non_terminal_tuple(self) -> tuple[NonTerminal, ...]:
+        return self._non_terminal_tuple  # type: ignore
+
+    @property
+    def terminal_tuple(self) -> tuple[Terminal, ...]:
+        return self._terminal_tuple  # type: ignore
 
     @property
     def context_free_grammar_rule_tuple(self) -> tuple[ContextFreeGrammarRule, ...]:
