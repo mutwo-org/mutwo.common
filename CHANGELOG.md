@@ -8,7 +8,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 
 
-## [0.5.0] - 2022-01-29
+## [0.6.0] - 2022-02-27
+
+### Added
+- property `context_free_grammar_rule_tuple` to `ContextFreeGrammar`
+
+
+## [0.5.0] - 2022-02-26
 
 ### Added
 - chomksy submodule with support for context-free grammar

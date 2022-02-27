@@ -68,17 +68,9 @@ class ContextFreeGrammar(object):
             tuple(context_free_grammar_rule_list)
             for context_free_grammar_rule_list in divided_context_free_grammar_rule_list
         )
-
-    def get_context_free_grammar_rule_tuple(
-        self, non_terminal: NonTerminal
-    ) -> tuple[ContextFreeGrammarRule, ...]:
-        """Find all defined context_free_grammar_rules for the provided :class:`NonTerminal`.
-
-        :param non_terminal: The left side element of the :class:`ContextFreeGrammarRule`.
-        :type non_terminal: NonTerminal
-        """
-        index = self._non_terminal_tuple.index(non_terminal)  # type: ignore
-        return self._divided_context_free_grammar_rule_tuple[index]
+        self._context_free_grammar_rule_tuple = tuple(
+            context_free_grammar_rule_sequence
+        )
 
     def _data_to_tag(
         self, data: tuple[typing.Union[NonTerminal, Terminal], ...]
@@ -110,6 +102,23 @@ class ContextFreeGrammar(object):
                     )
                     new_data_list.append(data)
         return tuple(new_data_list)
+
+    @property
+    def context_free_grammar_rule_tuple(self) -> tuple[ContextFreeGrammarRule, ...]:
+        """Get all defined rules"""
+
+        return self._context_free_grammar_rule_tuple
+
+    def get_context_free_grammar_rule_tuple(
+        self, non_terminal: NonTerminal
+    ) -> tuple[ContextFreeGrammarRule, ...]:
+        """Find all defined context_free_grammar_rules for the provided :class:`NonTerminal`.
+
+        :param non_terminal: The left side element of the :class:`ContextFreeGrammarRule`.
+        :type non_terminal: NonTerminal
+        """
+        index = self._non_terminal_tuple.index(non_terminal)  # type: ignore
+        return self._divided_context_free_grammar_rule_tuple[index]
 
     def resolve_one_layer(self, tree: treelib.Tree) -> bool:
         """Resolve all leaves of the tree.
