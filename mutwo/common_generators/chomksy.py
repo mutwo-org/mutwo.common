@@ -52,11 +52,14 @@ class ContextFreeGrammar(object):
         self,
         context_free_grammar_rule_sequence: typing.Sequence[ContextFreeGrammarRule],
     ):
-        self._non_terminal_tuple = core_utilities.uniqify_sequence(
-            tuple(
-                context_free_grammar_rule.left_side
-                for context_free_grammar_rule in context_free_grammar_rule_sequence
-            )
+        non_terminal_list = []
+        for context_free_grammar_rule in context_free_grammar_rule_sequence:
+            non_terminal_list.append(context_free_grammar_rule.left_side)
+            for terminal_or_non_terminal in context_free_grammar_rule.right_side:
+                if isinstance(terminal_or_non_terminal, NonTerminal):
+                    non_terminal_list.append(terminal_or_non_terminal)
+        self._non_terminal_tuple = tuple(
+            core_utilities.uniqify_sequence(non_terminal_list)
         )
         self._terminal_tuple = core_utilities.uniqify_sequence(
             tuple(

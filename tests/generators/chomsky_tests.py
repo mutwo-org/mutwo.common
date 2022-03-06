@@ -71,6 +71,22 @@ class ContextFreeGrammarTest(unittest.TestCase):
             (self.noun, self.sentence, self.verb),
         )
 
+    def test_non_terminal_tuple_with_not_resolved_non_terminal(self):
+        """This test ensures that NonTerminal which don't appear
+        on the left side of a rule still appear in the `non_terminal_tuple`
+        attribute"""
+        context_free_grammar = common_generators.ContextFreeGrammar(
+            [
+                common_generators.ContextFreeGrammarRule(
+                    self.sentence, (self.noun, self.verb, self.noun)
+                ),
+            ]
+        )
+        self.assertEqual(
+            set(context_free_grammar.non_terminal_tuple),
+            set((self.sentence, self.noun, self.verb)),
+        )
+
 
 if __name__ == "__main__":
     unittest.main()
