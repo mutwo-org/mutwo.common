@@ -202,7 +202,7 @@ class IndexBasedBacktracking(Backtracking):
 
     def can_last_element_be_updated(self, element_list: ElementList) -> bool:
         max_index = len(
-            self.element_index_to_item_sequence(len(element_list), element_list)
+            self.element_index_to_item_sequence(len(element_list) - 1, element_list)
         )
         return element_list[-1] + 1 < max_index
 
