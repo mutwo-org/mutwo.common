@@ -8,7 +8,7 @@ extras_require = {"testing": ["nose", "coveralls"]}
 
 setuptools.setup(
     name="mutwo.ext-common-generators",
-    version="0.7.1",
+    version="0.8.0",
     license="GPL",
     description="Common generators extension for event based framework for generative art",
     long_description=long_description,

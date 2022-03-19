@@ -6,7 +6,8 @@ from .chomksy import *
 from .edwards import *
 from .gray import *
 from .koenig import *
+from .lehmer import *
 from .toussaint import *
 
 # Force flat structure
-del brown, brun, chomksy, edwards, gray, koenig, toussaint
+del brown, brun, chomksy, edwards, gray, koenig, lehmer, toussaint

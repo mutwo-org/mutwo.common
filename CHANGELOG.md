@@ -8,6 +8,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 
 
+## [0.8.0] - 2022-03-19
+
+### Added
+- `Backtracking` and `IndexBasedBacktracking`
+
+
 ## [0.7.0] - 2022-02-27
 
 ### Added
