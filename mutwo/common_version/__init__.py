@@ -1,4 +1,6 @@
-MAJOR, MINOR, PATCH = 0, 9, 0
-__version__ = f"{MAJOR}.{MINOR}.{PATCH}"
+MAJOR, MINOR, PATCH = 0, 9, 1
+
+VERSION = f"{MAJOR}.{MINOR}.{PATCH}"
+"""The version of the package ``mutwo.common``."""
 
 del MAJOR, MINOR, PATCH
