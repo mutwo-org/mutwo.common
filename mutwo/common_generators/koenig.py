@@ -115,5 +115,5 @@ class Tendency(object):
 
     def value_at(self, time: float) -> float:
         """Get value at requested time."""
-        range_at = self.range_at(time)
-        return self._random.uniform(range_at.start, range_at.end)
+        range_at_time = self.range_at(time)
+        return self._random.uniform(range_at_time.start, range_at_time.end)
