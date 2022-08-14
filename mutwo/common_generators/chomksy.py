@@ -17,13 +17,9 @@ __all__ = ("NonTerminal", "Terminal", "ContextFreeGrammarRule", "ContextFreeGram
 class NonTerminal(object):
     """Can be used as a Mixin to define context-free grammar."""
 
-    pass
-
 
 class Terminal(object):
     """Can be used as a Mixin to define context-free grammar."""
-
-    pass
 
 
 @dataclasses.dataclass

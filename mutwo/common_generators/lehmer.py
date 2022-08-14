@@ -3,6 +3,8 @@
 import abc
 import typing
 
+from mutwo import common_utilities
+
 __all__ = ("Backtracking", "IndexBasedBacktracking")
 
 Solution = tuple[typing.Any, ...]
@@ -52,7 +54,6 @@ class Backtracking(abc.ABC):
     @abc.abstractmethod
     def solution_count(self) -> int:
         """Return expected solution size"""
-        raise NotImplementedError
 
     @abc.abstractmethod
     def is_valid(self, element_list: ElementList) -> bool:
@@ -61,7 +62,6 @@ class Backtracking(abc.ABC):
         :return: `True` if the solution is acceptable and `False` if
             the solution is rejected.
         """
-        raise NotImplementedError
 
     @abc.abstractmethod
     def append_new_element(self, element_list: ElementList):
@@ -70,7 +70,6 @@ class Backtracking(abc.ABC):
         :param element_list: The element list to which a new
             element shall be appended.
         """
-        raise NotImplementedError
 
     @abc.abstractmethod
     def update_last_element(self, element_list: ElementList):
@@ -82,7 +81,6 @@ class Backtracking(abc.ABC):
         This function should raise an Exception in case the last
         element can't be updated.
         """
-        raise NotImplementedError
 
     @abc.abstractmethod
     def can_last_element_be_updated(self, element_list: ElementList) -> bool:
@@ -91,7 +89,6 @@ class Backtracking(abc.ABC):
         :param element_list: The element list which last value shall
             be checked.
         """
-        raise NotImplementedError
 
     def element_list_to_solution(self, element_list: ElementList) -> Solution:
         """Converts an element list to the final solution
@@ -121,7 +118,7 @@ class Backtracking(abc.ABC):
                 while not self.can_last_element_be_updated(element_list):
                     element_list = element_list[:-1]
                     if len(element_list) == 0:
-                        raise Exception("No solution could be found.")
+                        raise common_utilities.NoSolutionFoundError()
 
                 self.update_last_element(element_list)
 
@@ -192,7 +189,6 @@ class IndexBasedBacktracking(Backtracking):
             of solutions shall be returned.
         :param element_list: The current element list
         """
-        raise NotImplementedError
 
     def append_new_element(self, element_list: ElementList):
         element_list.append(0)

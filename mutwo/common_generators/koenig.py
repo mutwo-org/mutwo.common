@@ -3,6 +3,7 @@
 import numpy as np  # type: ignore
 import ranges  # type: ignore
 
+from mutwo import common_utilities
 from mutwo import core_events
 
 __all__ = ("Tendency",)
@@ -58,15 +59,9 @@ class Tendency(object):
         """Helper method that asserts the curves are a valid min/max pair."""
 
         # make sure both curves have equal duration
-        try:
-            assert minima_curve.duration == maxima_curve.duration
-        except AssertionError:
-            raise ValueError(
-                "Found unequal duration when comparing 'minima_curve' "
-                f"(with duration = '{minima_curve.duration}')"
-                f"  and 'maxima_curve' (with duration = "
-                f"'{maxima_curve.duration}'). Make sure both curves "
-                "have equal duration."
+        if minima_curve.duration != maxima_curve.duration:
+            raise common_utilities.UnequalEnvelopeDurationError(
+                minima_curve, maxima_curve
             )
 
         # It would be better if we could compare all local extrema.
@@ -81,10 +76,8 @@ class Tendency(object):
             + (0, minima_curve.duration)
         )
         for time in point_to_compare_tuple:
-            try:
-                assert minima_curve.value_at(time) < maxima_curve.value_at(time)
-            except AssertionError:
-                raise ValueError(
+            if not minima_curve.value_at(time) < maxima_curve.value_at(time):
+                raise common_utilities.InvalidMinimaCurveAndMaximaCurveCombination(
                     f"At time '{time}' 'minima_curve' isn't smaller "
                     "than 'maxima_curve'!"
                 )

@@ -4,8 +4,9 @@ import functools
 import itertools
 import operator
 
-from mutwo import core_utilities
 from mutwo import common_generators
+from mutwo import common_utilities
+from mutwo import core_utilities
 
 __all__ = ("ActivityLevel",)
 
@@ -46,24 +47,14 @@ class ActivityLevel(object):
     )
 
     def __init__(self, start_at: int = 0) -> None:
-        try:
-            assert start_at in (0, 1, 2)
-        except AssertionError:
-            message = "start_at has to be either 0, 1 or 2 and not {}, ".format(
-                start_at
-            )
-            message += (
-                "because there are only three different tuples defined per level."
-            )
-            raise ValueError(message)
+        if start_at not in (0, 1, 2):
+            raise common_utilities.InvalidStartAtValueError(start_at)
 
         self._activity_level_cycle_tuple = tuple(
             itertools.cycle(
                 functools.reduce(
                     operator.add,
-                    tuple(core_utilities.cyclic_permutations(level_tuple))[
-                        start_at
-                    ],
+                    tuple(core_utilities.cyclic_permutations(level_tuple))[start_at],
                 )
             )
             for level_tuple in common_generators.constants.ACTIVITY_LEVEL_TUPLE
@@ -80,12 +71,9 @@ class ActivityLevel(object):
         :return: True if active and False if not active.
         """
 
-        try:
-            assert level in self._allowed_range_tuple
-        except AssertionError:
-            message = "level is '{}' but has to be in range '{}'!".format(
+        if level not in self._allowed_range_tuple:
+            raise common_utilities.InvalidActivityLevelError(
                 level, self._allowed_range_tuple
             )
-            raise ValueError(message)
 
         return bool(next(self._activity_level_cycle_tuple[level]))

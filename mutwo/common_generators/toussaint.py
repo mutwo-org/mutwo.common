@@ -2,6 +2,7 @@
 
 import itertools
 
+from mutwo import common_utilities
 from mutwo import core_utilities
 
 __all__ = ("euclidean", "paradiddle", "alternating_hands")
@@ -78,14 +79,8 @@ def paradiddle(size: int) -> tuple[tuple[int, ...], ...]:
         return tuple(right), tuple(left)
 
     # check for correct size value
-    try:
-        assert size % 2 == 0 and size > 2
-    except AssertionError:
-        message = (
-            "Invalid value '{}' for argument 'size'. 'Size' has to be divisible by 2"
-            " and has to be bigger than 2.".format(size)
-        )
-        raise ValueError(message)
+    if not (size % 2 == 0 and size > 2):
+        raise common_utilities.InvalidSizeError(size)
 
     cycle = itertools.cycle((True, False))
     pattern = list(next(cycle) for _ in range(size // 2))
