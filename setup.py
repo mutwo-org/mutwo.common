@@ -1,5 +1,10 @@
 import setuptools  # type: ignore
 
+version = {}
+with open("mutwo/common_version/__init__.py") as fp:
+    exec(fp.read(), version)
+
+VERSION = version["__version__"]
 
 with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
@@ -15,7 +20,7 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     author="Levin Eric Zimmermann",
     author_email="levin.eric.zimmermann@posteo.eu",
-    url="https://github.com/mutwo-org/mutwo.ext-common-generators",
+    url="https://github.com/mutwo-org/mutwo.common",
     project_urls={"Documentation": "https://mutwo.readthedocs.io/en/latest/"},
     packages=[
         package
