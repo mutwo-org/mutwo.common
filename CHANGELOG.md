@@ -8,6 +8,16 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 
 
+## [0.9.0] - 2022-08-14
+
+### Added
+- explicit exception classes in `mutwo.common_utilities`
+
+### Changed
+- raised exceptions to custom exception classes
+- package name from `mutwo.ext-common-generators` to `mutwo.common`
+
+
 ## [0.8.0] - 2022-03-19
 
 ### Added
