@@ -7,10 +7,10 @@ with open("README.md", "r", encoding="utf-8") as fh:
 extras_require = {"testing": ["nose", "coveralls"]}
 
 setuptools.setup(
-    name="mutwo.ext-common-generators",
+    name="mutwo.common",
     version="0.8.1",
     license="GPL",
-    description="Common generators extension for event based framework for generative art",
+    description="Common extension for event based framework for generative art",
     long_description=long_description,
     long_description_content_type="text/markdown",
     author="Levin Eric Zimmermann",
