@@ -35,7 +35,7 @@ setuptools.setup(
         # For the brown module
         "scipy>=1.4.1, <2.0.0",
         # For the koenig module
-        "python-ranges>=0.2.0, <1.0.0",
+        "python-ranges>=1.2.0, <2.0.0",
         # For the chomsky module
         "treelib>=1.6.1, <2.0.0",
     ],
