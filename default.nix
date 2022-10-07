@@ -40,8 +40,8 @@ in
     src = fetchFromGitHub {
       owner = "mutwo-org";
       repo = name;
-      rev = "80094d96d44b8e19e65fde1393df6354360af39e";
-      sha256 = "sha256-ZxXVCMylCw8HyQq2XChin3QcaijHq8jC576FH0bEyO0=";
+      rev = "6b7a280159bb0518bcfe4cc9baa84942944eedd0";
+      sha256 = "sha256-s41Yud6AQw8LWDT08tyXdKtZ9iQhtdOIn4DoKj125p0=";
     };
     propagatedBuildInputs = [ 
       treelib
