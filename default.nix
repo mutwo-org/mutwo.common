@@ -1,13 +1,13 @@
 with import <nixpkgs> {};
-with pkgs.python3Packages;
+with pkgs.python310Packages;
 
 
 let
 
-  mutwo-core-archive = builtins.fetchTarball "https://github.com/mutwo-org/mutwo.core/archive/97aea97f996973955889630c437ceaea405ea0a7.tar.gz";
+  mutwo-core-archive = builtins.fetchTarball "https://github.com/mutwo-org/mutwo.core/archive/069a407e5ac1bd140d92180e21e64dd094df83c5.tar.gz";
   mutwo-core = import (mutwo-core-archive + "/default.nix");
 
-  treelib = pkgs.python39Packages.buildPythonPackage rec {
+  treelib = pkgs.python310Packages.buildPythonPackage rec {
     name = "treelib";
     src = fetchFromGitHub {
       owner = "caesar0301";
@@ -16,10 +16,10 @@ let
       sha256 = "sha256-QGgWsMfPm4ZCSeU/ODY0ewg1mu/mRmtXgHtDyHT9dac=";
     };
     doCheck = true;
-    propagatedBuildInputs = [ python39Packages.future ];
+    propagatedBuildInputs = [ python310Packages.future ];
   };
 
-  python-ranges = pkgs.python39Packages.buildPythonPackage rec {
+  python-ranges = pkgs.python310Packages.buildPythonPackage rec {
     name = "python-ranges";
     src = fetchFromGitHub {
       owner = "Superbird11";
@@ -29,9 +29,8 @@ let
     };
     # TypeError: calling <class 'ranges.RangeDict.RangeDict'> returned {}, not a test
     doCheck = false;
-    propagatedBuildInputs = [ python39Packages.pytest ];
+    checkInputs = [ python310Packages.pytest ];
   };
-
 
 in
 
@@ -40,13 +39,13 @@ in
     src = fetchFromGitHub {
       owner = "mutwo-org";
       repo = name;
-      rev = "6b7a280159bb0518bcfe4cc9baa84942944eedd0";
-      sha256 = "sha256-s41Yud6AQw8LWDT08tyXdKtZ9iQhtdOIn4DoKj125p0=";
+      rev = "dd8b4e5355cb0bacb0085146f975e620a6384abe";
+      sha256 = "sha256-L0ruY6ehQFwXnxqq5iY+DF9RTURcI5E+e6NGMFULEoQ=";
     };
     propagatedBuildInputs = [ 
       treelib
-      python39Packages.numpy
-      python39Packages.scipy
+      python310Packages.numpy
+      python310Packages.scipy
       python-ranges
       mutwo-core
     ];
