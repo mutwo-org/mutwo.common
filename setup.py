@@ -9,7 +9,7 @@ VERSION = version["VERSION"]
 with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
-extras_require = {"testing": ["nose", "coveralls"]}
+extras_require = {"testing": ["pytest>=7.1.1"]}
 
 setuptools.setup(
     name="mutwo.common",
@@ -29,7 +29,7 @@ setuptools.setup(
     ],
     setup_requires=[],
     install_requires=[
-        "mutwo.core>=0.61.4, <1.00.0",
+        "mutwo.core>=1.0.0, <2.0.0",
         # For the brown, brun and koenig modules
         "numpy>=1.18, <2.00",
         # For the brown module
@@ -40,5 +40,5 @@ setuptools.setup(
         "treelib>=1.6.1, <2.0.0",
     ],
     extras_require=extras_require,
-    python_requires=">=3.9, <4",
+    python_requires=">=3.10, <4",
 )
