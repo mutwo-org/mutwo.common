@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
-## [0.10.0] - 2022-11-06
+## [0.11.0] - 2022-11-06
 
 ### Dropped
 - Python 3.9 support
