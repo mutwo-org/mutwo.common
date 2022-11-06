@@ -4,7 +4,7 @@ with pkgs.python310Packages;
 
 let
 
-  mutwo-core-archive = builtins.fetchTarball "https://github.com/mutwo-org/mutwo.core/archive/04dba89c44d884c0050bc1f2473abe88738728fb.tar.gz";
+  mutwo-core-archive = builtins.fetchTarball "https://github.com/mutwo-org/mutwo.core/archive/61ebb657ef5806eb067f5df6885254fdbae8f44c.tar.gz";
   mutwo-core = import (mutwo-core-archive + "/default.nix");
 
   treelib = pkgs.python310Packages.buildPythonPackage rec {
