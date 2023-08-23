@@ -62,4 +62,4 @@ ACTIVITY_LEVEL_TUPLE = (
 )
 """Definition of activity level pattern. `Pattern are copied from
 Michael Edwards Common Lisp composition software 'slippery-chicken'
-<https://github.com/mdedwards/slippery-chicken/blob/master/src/activity-levels.lsp>`_."""
+<https://github.com/mdedwards/slippery-chicken/blob/c1c11fa/src/activity-levels.lsp#L75-L109>`_."""
