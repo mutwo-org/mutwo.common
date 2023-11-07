@@ -56,15 +56,18 @@ def make_bruns_euclidean_algorithm_generator(
     **Example:**
 
     >>> import fractions
-    >>> from mutwo.generators import brun
-    >>> bruns_euclidean_algorithm_generator = brun.make_bruns_euclidean_algorithm_generator(
-    >>>     (
-    >>>         fractions.Fraction(2, 1),
-    >>>         fractions.Fraction(3, 2),
-    >>>         fractions.Fraction(5, 4),
-    >>>     )
-    >>> )
-    >>> next(bruns_euclidean_algorithm_generator)
+    >>> from mutwo import common_generators
+    >>> b = common_generators.make_bruns_euclidean_algorithm_generator(
+    ...     (
+    ...         fractions.Fraction(2, 1),
+    ...         fractions.Fraction(3, 2),
+    ...         fractions.Fraction(5, 4),
+    ...     )
+    ... )
+    >>> next(b)
+    ((Fraction(2, 1), Fraction(3, 2), Fraction(5, 4)), array([[1, 0, 0],
+           [0, 1, 0],
+           [0, 0, 1]]), Fraction(2, 1))
     """
 
     while True:

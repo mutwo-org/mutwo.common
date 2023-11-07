@@ -30,8 +30,8 @@ class ActivityLevel(object):
 
     **Example:**
 
-    >>> from mutwo.generators import edwards
-    >>> activity_levels = edwards.ActivityLevel()
+    >>> from mutwo import common_generators
+    >>> activity_levels = common_generators.ActivityLevel()
     >>> activity_levels(0)  # activity level 0 will always return False
     False
     >>> activity_levels(10)  # activity level 10 will always return True

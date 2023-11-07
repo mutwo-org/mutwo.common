@@ -27,15 +27,15 @@ class Tendency(object):
 
     **Example:**
 
-    >>> import core_events
-    >>> from mutwo.generators import koenig
-    >>> minima_curve = core_events.Envelope.from_points((0, 0), (1, 1), (2, 0))
-    >>> maxima_curve = core_events.Envelope.from_points((0, 1), (1, 2), (2, 3))
-    >>> my_tendency = koenig.Tendency(minima_curve, maxima_curve)
+    >>> from mutwo import core_events
+    >>> from mutwo import common_generators
+    >>> minima_curve = core_events.Envelope([(0, 0), (1, 1), (2, 0)])
+    >>> maxima_curve = core_events.Envelope([(0, 1), (1, 2), (2, 3)])
+    >>> my_tendency = common_generators.Tendency(minima_curve, maxima_curve)
     >>> my_tendency.value_at(0.5)
-    0.6456692551041303
+    1.3349816305020088
     >>> my_tendency.value_at(0.5)
-    0.9549270045140213
+    1.0965540269678873
     """
 
     def __init__(

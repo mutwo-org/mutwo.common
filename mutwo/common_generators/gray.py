@@ -13,19 +13,12 @@ def reflected_binary_code(
 
     **Example:**
 
-    >>> from mutwo.generators import gray
-    >>> gray.reflected_binary_code(2, 2)
+    >>> from mutwo import common_generators
+    >>> common_generators.reflected_binary_code(2, 2)
     ((0, 0), (0, 1), (1, 1), (1, 0))
-    >>> gray.reflected_binary_code(3, 2)
-    ((0, 0, 0),
-    (0, 0, 1),
-    (0, 1, 1),
-    (0, 1, 0),
-    (1, 1, 0),
-    (1, 1, 1),
-    (1, 0, 1),
-    (1, 0, 0))
-    >>> gray.reflected_binary_code(2, 3)
+    >>> common_generators.reflected_binary_code(3, 2)
+    ((0, 0, 0), (0, 0, 1), (0, 1, 1), (0, 1, 0), (1, 1, 0), (1, 1, 1), (1, 0, 1), (1, 0, 0))
+    >>> common_generators.reflected_binary_code(2, 3)
     ((0, 0), (0, 1), (0, 2), (1, 2), (1, 1), (1, 0), (2, 0), (2, 1), (2, 2))
 
     Basic code has been copied from:

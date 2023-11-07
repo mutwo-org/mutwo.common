@@ -156,27 +156,29 @@ class IndexBasedBacktracking(Backtracking):
     >>> import itertools
     >>> from mutwo import common_generators
     >>> class QueenProblem8(common_generators.IndexBasedBacktracking):
-            point_list = list(itertools.combinations_with_replacement(range(queen_count), 2))
-            point_list.extend(
-                [tuple(reversed(point)) for point in point_list if len(set(point)) == 2]
-            )
-            def element_index_to_item_sequence(self, element_index, element_list):
-                return self.point_list
-            @property
-            def solution_count(self):
-                # 8 queens problem!
-                return 8
-            def is_valid(self, element_list):
-                solution = self.element_list_to_solution(element_list)
-                for queen0, queen1 in itertools.combinations(solution, 2):
-                    # x != x, y != y
-                    is_valid = all(value0 != value1 for value0, value1 in zip(queen0, queen1))
-                    difference_x, difference_y = (value0 - value1 for value0, value1 in zip(queen0, queen1))
-                    is_valid = is_valid and (difference_x != difference_y)
-                    if not is_valid: return False
-                return True
+    ...     queen_count = 8
+    ...     point_list = list(itertools.combinations_with_replacement(range(queen_count), 2))
+    ...     point_list.extend(
+    ...         [tuple(reversed(point)) for point in point_list if len(set(point)) == 2]
+    ...     )
+    ...     def element_index_to_item_sequence(self, element_index, element_list):
+    ...         return self.point_list
+    ...     @property
+    ...     def solution_count(self):
+    ...         # 8 queens problem!
+    ...         return 8
+    ...     def is_valid(self, element_list):
+    ...         solution = self.element_list_to_solution(element_list)
+    ...         for q0, q1 in itertools.combinations(solution, 2):
+    ...             # x != x, y != y
+    ...             is_valid = all(v0 != v1 for v0, v1 in zip(q0, q1))
+    ...             diff_x, diff_y = (v0 - v1 for v0, v1 in zip(q0, q1))
+    ...             is_valid = is_valid and (diff_x != diff_y)
+    ...             if not is_valid: return False
+    ...         return True
     >>> queen_problem_8 = QueenProblem8()
     >>> queen_problem_8.solve()
+    ((0, 0), (1, 2), (2, 5), (3, 7), (4, 6), (6, 1), (5, 3), (7, 4))
     """
 
     @abc.abstractmethod

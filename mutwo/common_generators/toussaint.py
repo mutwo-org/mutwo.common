@@ -17,10 +17,10 @@ def euclidean(size: int, distribution: int) -> tuple[int, ...]:
 
     **Example:**
 
-    >>> from mutwo.generators import toussaint
-    >>> toussaint.euclidean(8, 4)
+    >>> from mutwo import common_generators
+    >>> common_generators.euclidean(8, 4)
     (2, 2, 2, 2)
-    >>> toussaint.euclidean(7, 5)
+    >>> common_generators.euclidean(7, 5)
     (2, 1, 1, 2, 1)
 
     The title of Toussaints paper is
@@ -58,10 +58,10 @@ def paradiddle(size: int) -> tuple[tuple[int, ...], ...]:
 
     **Example:**
 
-    >>> from mutwo.generators import toussaint
-    >>> toussaint.paradiddle(8)
+    >>> from mutwo import common_generators
+    >>> common_generators.paradiddle(8)
     ((0, 2, 3, 5), (1, 4, 6, 7))
-    >>> toussaint.paradiddle(6)
+    >>> common_generators.paradiddle(6)
     ((0, 4, 5), (1, 2, 3))
 
     The paradiddle algorithm has been described by Godfried T. Toussaint
@@ -100,10 +100,10 @@ def alternating_hands(
 
     **Example:**
 
-    >>> from mutwo.generators import toussaint
-    >>> toussaint.alternating_hands((2, 2))
+    >>> from mutwo import common_generators
+    >>> common_generators.alternating_hands((2, 2))
     ((0, 6), (2, 4))
-    >>> toussaint.alternating_hands((3, 2, 2))
+    >>> common_generators.alternating_hands((3, 2, 2))
     ((0, 5, 10), (3, 7, 12))
 
     The alternating hands algorithm has been described by Godfried T. Toussaint
