@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [0.12.0] - 2024-04-23
+
+Moved from 'mutwo.core' < 2.0.0 to 'mutwo.core' >= 2.0.0
+
+### Added
+- `common_generators.DynamicChoice`
+
+
 ## [0.11.0] - 2022-11-06
 
 ### Dropped
