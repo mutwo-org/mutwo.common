@@ -29,7 +29,7 @@ setuptools.setup(
     ],
     setup_requires=[],
     install_requires=[
-        "mutwo.core>=1.0.0, <2.0.0",
+        "mutwo.core>=2.0.0, <3.0.0",
         # For the brown, brun and koenig modules
         "numpy>=1.18, <2.00",
         # For the brown module
