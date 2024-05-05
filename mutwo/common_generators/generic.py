@@ -32,11 +32,11 @@ class DynamicChoice(object):
     ...    ],
     ... )
     >>> dynamic_choice.gamble_at(0.3)
-    2
-    >>> dynamic_choice.gamble_at(0.3)
-    2
-    >>> dynamic_choice.gamble_at(0.3)
     0
+    >>> dynamic_choice.gamble_at(0.3)
+    1
+    >>> dynamic_choice.gamble_at(0.3)
+    2
     """
 
     def __init__(
