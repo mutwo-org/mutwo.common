@@ -31,9 +31,9 @@ setuptools.setup(
     install_requires=[
         "mutwo.core>=2.0.0, <3.0.0",
         # For the brown, brun and koenig modules
-        "numpy>=1.18, <2.00",
+        "numpy>=1.18",
         # For the brown module
-        "scipy>=1.4.1, <2.0.0",
+        "scipy>=1.4.1",
         # For the koenig module
         "python-ranges>=1.2.0, <2.0.0",
         # For the chomsky module
